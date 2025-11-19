@@ -57,9 +57,6 @@ estimate_arrival_rates <- function(data) {
   return(mu_hat)
 }
 
-# Load the sample dataset
-sample_bike <- read_csv("../Data/sample_bike.csv")
-
 # Estimate arrival rates
 arrival_rates <- estimate_arrival_rates(sample_bike)
 
