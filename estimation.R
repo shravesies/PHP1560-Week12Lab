@@ -58,10 +58,10 @@ estimate_arrival_rates <- function(data) {
 }
 
 # Load the sample dataset
-bike_data <- read_csv("../Data/sample_bike.csv")
+sample_bike <- read_csv("../Data/sample_bike.csv")
 
 # Estimate arrival rates
-arrival_rates <- estimate_arrival_rates(bike_data)
+arrival_rates <- estimate_arrival_rates(sample_bike)
 
 # View the results
 print(arrival_rates, n = 10)
