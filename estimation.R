@@ -1,4 +1,7 @@
-#' NEED TO ADD DOCUMENTATION
+#' Estimating Bike Arrival Rates Function
+#' 
+#' @description This function will compute estimated arrival times of bikes from one station to another.
+#' @param1 data A bike data frame.
 estimate_arrival_rates <- function(data) {
   
   # compute the average number of trips per hour between each pair
