@@ -1,3 +1,6 @@
+#Loading in packages
+library(tidyverse)
+
 #Reading in the data
 sample_bike <- read.csv(".../sample_bike.csv")
 
