@@ -21,7 +21,7 @@ estimate_arrival_rates <- function(data) {
                  names_pattern = "(start|end)_(.*)") %>%
     mutate(change = ifelse(type == "start", -1, 1),
            hour = hour(time)) %>%
-    select(station, time, hour, change)
+    dplyr::select(station, time, hour, change)
   
   #station and time are not defined yet, have to define them?
   
