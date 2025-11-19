@@ -23,6 +23,8 @@ estimate_arrival_rates <- function(data) {
            hour = hour(time)) %>%
     select(station, time, hour, change)
   
+  #station and time are not defined yet, have to define them?
+  
   # add hour markers so we can get cumulative time
   dates <- unique(as_date(trips_long$time))
   hours <- c(seq(0,23,1),seq(0,23,1)+0.9999999)
@@ -58,7 +60,7 @@ estimate_arrival_rates <- function(data) {
 }
 
 # Load the sample dataset
-sample_bike <- read_csv("../Data/sample_bike.csv")
+sample_bike <- read_csv("/Users/lilyzamora/Desktop/PHP 1560/Data/sample_bike.csv")
 
 # Estimate arrival rates
 arrival_rates <- estimate_arrival_rates(sample_bike)
