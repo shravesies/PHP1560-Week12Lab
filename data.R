@@ -1,5 +1,8 @@
 #Loading in packages
 library(tidyverse)
+library(MASS) 
+library(patchwork) 
+library(glmnet)
 
 #Reading in the data
 sample_bike <- read.csv(".../sample_bike.csv")
