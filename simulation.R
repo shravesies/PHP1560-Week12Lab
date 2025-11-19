@@ -7,6 +7,8 @@
 
 # parameters must be defined
 
-simulation <- function() {
+simulation <- function(n, s) {
   
+  #Generate a matrix to store our data results
+  matrix
 }
