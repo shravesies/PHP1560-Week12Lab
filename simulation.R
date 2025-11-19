@@ -1,8 +1,12 @@
 #' Simulating Bike Data
 #' 
 #' @description
-#' @param1
+#' @param1 n number of runs we will do for the simulation
+#' @param2 s number of samples we will use in each simulation
+#' @param3 
 
-simulation <- function(arrival_rates) {
+# parameters must be defined
+
+simulation <- function() {
   
 }
