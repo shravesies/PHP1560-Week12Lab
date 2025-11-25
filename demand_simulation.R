@@ -1,7 +1,7 @@
 #' Simulating Demand for Bikes
 #' 
 #' @description This function is meant to simulate the demand for bikes
-#' for one day (24 hours) from the NHPP data.
+#' for one day (24 hours) from the sample_bike data.
 #' @param1 arrival_rates a data frame that estimates the arrival rates
 #' from one station to another at different hours, giving us average
 #' bike availability and mu_hat as well, which will act as our lambda
@@ -9,8 +9,11 @@
 #' @param2 day a set measure for how many hours there are in our simulation,
 #' setting the max to 24.
 
+#Make sure data is loaded in properly using sample_bike data
 arrival_rates <- estimate_arrival_rates(sample_bike)
 
+#Set demand_simulation as a function given the parameters, setting seed 
+#to randomize and to create a new vector that will intake all bike demand
 demand_simulation <- function(arrival_rates, day = 24) {
   set.seed(123)
   all_demand <- c()
@@ -42,6 +45,7 @@ demand_simulation <- function(arrival_rates, day = 24) {
     t <- t + rexp(1, rate = lambda_max)
     if (t > day) break
 
+#Set an hour, rounded down so that we don't have problems with empty vectors
     hr <- floor(t)
     lambda_vector <- pair_rates$mu_hat[pair_rates$hour == hr]
     
@@ -50,15 +54,19 @@ demand_simulation <- function(arrival_rates, day = 24) {
     } else {
       mean(lambda_vector)
     }
-    
+  
+#Make sure to remove NAs (it was not working when they were not removed)
     lambda_time <- ifelse(is.na(lambda_time), 0, lambda_time)
-    
+
+#Do the thinning (Generate simulation for non-homogeneous Poisson Process)
     if (runif(1) < lambda_time / lambda_max) {
       demand <- c(demand, t)
     }
   }
+
+#Create data frame from the vector with all demands
   if (length(demand) > 0) {
-    all_demand[[paste(orig, dest, sep = "_")]] <- data.frame(
+    all_demand[[paste(orig, dest)]] <- data.frame(
         time = demand,
         origin = orig,
         destination = dest)
@@ -68,4 +76,6 @@ demand_simulation <- function(arrival_rates, day = 24) {
   bind_rows(all_demand)
 }
 
+#Run function so that the data frame is created and we can then simulate trips
+#given our demand to see if they can occur. We will optimize from there.
 demand_sim <- demand_simulation(arrival_rates)
