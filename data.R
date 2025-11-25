@@ -3,6 +3,7 @@ library(tidyverse)
 library(MASS) 
 library(patchwork) 
 library(glmnet)
+library(dplyr)
 
 #Reading in the data
 sample_bike <- read.csv(".../sample_bike.csv")
