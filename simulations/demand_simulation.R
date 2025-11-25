@@ -8,6 +8,8 @@
 #' for this simulation.
 #' @param2 day a set measure for how many hours there are in our simulation,
 #' setting the max to 24.
+#' @return This function returns a data frame with time, origin station,
+#' and destination station.
 
 #Make sure data is loaded in properly using sample_bike data
 arrival_rates <- estimate_arrival_rates(sample_bike)
