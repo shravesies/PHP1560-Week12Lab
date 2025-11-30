@@ -12,7 +12,7 @@
 #' and destination station.
 
 #Make sure data is loaded in properly using sample_bike data
-#arrival_rates <- estimate_arrival_rates(sample_bike)
+arrival_rates <- estimate_arrival_rates(sample_bike)
 
 #Set demand_simulation as a function given the parameters, setting seed 
 #to randomize and to create a new vector that will intake all bike demand
