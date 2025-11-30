@@ -1,0 +1,34 @@
+#' Unhappy Customers
+#' 
+#' @description This function will find the number of customers that did not have a bike at their station
+#' @param1 sample_bike a data frame that has the start and end stations and times for each bike trip
+#' @param2 num_bikes a data frame that shows the number of bikes each station has
+#' @return This function returns a data frame with station, number of bikes, and number of unhappy customers
+
+
+unhappy <- function(sample_bike, num_bikes) {
+  sample_bike <- sample_bike[order(sample_bike$start_time), ]
+  
+  num_bikes$unhappy <- 0
+  
+  for (i in 1:nrow(sample_bike)) {
+    start <- sample_bike$start_station[i]
+    end   <- sample_bike$end_station[i]
+    
+    s <- num_bikes$station == start
+    e <- num_bikes$station == end
+    
+    if (num_bikes$bikes[s] > 0) {
+      num_bikes$bikes[s] <- num_bikes$bikes[s] - 1
+      num_bikes$bikes[e] <- num_bikes$bikes[e] + 1
+    } else {
+      num_bikes$unhappy[s] <- num_bikes$unhappy[s] + 1
+    }
+  }
+  
+  return(num_bikes)
+}
+
+num_bikes <- data.frame(
+  station = unique(sample_bike$start_station),
+  bikes = 0)
