@@ -5,8 +5,6 @@
 #' @param2 num_bikes a data frame that shows the number of bikes each station has
 #' @return This function returns a data frame with station, number of bikes, and number of unhappy customers
 
-
-
 optimization <- function(sample_bike, num_bikes) {
   
   customer_data <- unhappy(sample_bike, num_bikes)
@@ -24,3 +22,4 @@ optimization <- function(sample_bike, num_bikes) {
   
   return(num_bikes)
 }
+
