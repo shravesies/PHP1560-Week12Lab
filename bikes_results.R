@@ -40,5 +40,7 @@ fleetsize_100 <- optimization(demand_sim, num_bikes, fleet_size = 100)
 
 fleetsize_500 <- optimization(demand_sim, num_bikes, fleet_size = 500)
 
-
-kable(final_table)
+#Create table of each result
+kable(fleetsize_50)
+kable(fleetsize_100)
+kable(fleetsize_500)
