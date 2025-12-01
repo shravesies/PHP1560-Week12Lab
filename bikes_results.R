@@ -28,26 +28,17 @@ unhappy(demand_sim, num_bikes)
 
 # Now we can run optimizing_bikes which calls the previous functions
 
-set.seed(123)
-result1 <- optimization(demand_sim, num_bikes)
+fleetsize_50 <- optimization(demand_sim, num_bikes, 50)
 
 # This result is a data frame that contains all of the stations and the optimized 
 # number of bikes each station should start with
-# the unhappy column should be zero since the while loop only ends when there
-# are no unhappy customers left
 
-# We run this 2 more times and avg the results
+# We run this 2 more times with different fleet sizes which is the number of 
+#bikes available
 
-set.seed(345)
-result2 <- optimization(demand_sim, num_bikes)
+fleetsize_100 <- optimization(demand_sim, num_bikes, 100)
 
-set.seed(567)
-result3 <- optimization(demand_sim, num_bikes)
+fleetsize_500 <- optimization(demand_sim, num_bikes, 500)
 
-combined <- rbind(result1, result2, result3)
-
-final_table <- combined %>%
-  group_by(station) %>%
-  summarize(avg_bikes = mean(bikes))
 
 kable(final_table)
