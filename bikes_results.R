@@ -28,7 +28,7 @@ unhappy(demand_sim, num_bikes)
 
 # Now we can run optimizing_bikes which calls the previous functions
 
-fleetsize_50 <- optimization(demand_sim, num_bikes, 50)
+fleetsize_50 <- optimization(demand_sim, num_bikes, fleet_size = 50)
 
 # This result is a data frame that contains all of the stations and the optimized 
 # number of bikes each station should start with
@@ -36,9 +36,9 @@ fleetsize_50 <- optimization(demand_sim, num_bikes, 50)
 # We run this 2 more times with different fleet sizes which is the number of 
 #bikes available
 
-fleetsize_100 <- optimization(demand_sim, num_bikes, 100)
+fleetsize_100 <- optimization(demand_sim, num_bikes, fleet_size = 100)
 
-fleetsize_500 <- optimization(demand_sim, num_bikes, 500)
+fleetsize_500 <- optimization(demand_sim, num_bikes, fleet_size = 500)
 
 
 kable(final_table)
