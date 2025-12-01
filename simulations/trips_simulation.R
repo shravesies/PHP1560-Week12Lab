@@ -4,6 +4,8 @@
 #' @param1 demand_sim a data frame input that holds our simulation for bike 
 #' demand for the day
 #' @param2 placement input that tracks placement of bikes to optimize on
+#' @return this function returns a data frame of the completed trips
+#' and how many bikes ended up being at certain stations.
 
 source("~/GitHub/PHP1560-Week12Lab/simulations/demand_simulation.R")
 
