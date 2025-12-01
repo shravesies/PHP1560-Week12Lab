@@ -5,6 +5,11 @@
 #' @param2 num_bikes a data frame that shows the number of bikes each station has
 #' @return This function returns a data frame with station, number of bikes, and number of unhappy customers
 
+# save a data frame with number of bikes to keep track of optimized
+# placements
+num_bikes <- data.frame(
+  station = unique(sample_bike$start_station),
+  bikes = 0)
 
 unhappy <- function(sample_bike, num_bikes) {
   sample_bike <- sample_bike[order(sample_bike$start_time), ]
@@ -28,7 +33,3 @@ unhappy <- function(sample_bike, num_bikes) {
   
   return(num_bikes)
 }
-
-num_bikes <- data.frame(
-  station = unique(sample_bike$start_station),
-  bikes = 0)
