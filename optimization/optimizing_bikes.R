@@ -7,19 +7,19 @@
 
 source("~/GitHub/PHP1560-Week12Lab/optimization/unhappy_customers.R")
 
-optimization <- function(demand_sim, num_bikes) {
+optimization <- function(demand_sim, num_bikes, fleet_size) {
   
   customer_data <- unhappy(demand_sim, num_bikes)
   total_unhappy <- sum(customer_data$unhappy)
   
-  while (total_unhappy > 0) {
+  while (sum(num_bikes$bikes) < fleet_size) {
+    
     saddest_station <- customer_data$station[which.max(customer_data$unhappy)]
     
     num_bikes$bikes[num_bikes$station == saddest_station] <-
       num_bikes$bikes[num_bikes$station == saddest_station] + 1
     
     customer_data <- unhappy(demand_sim, num_bikes)
-    total_unhappy <- sum(customer_data$unhappy)
   }
   
   return(num_bikes)
