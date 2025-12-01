@@ -28,7 +28,7 @@ unhappy(demand_sim, num_bikes)
 
 # Now we can run optimizing_bikes which calls the previous functions
 
-
+set.seed(123)
 result1 <- optimization(demand_sim, num_bikes)
 
 # This result is a data frame that contains all of the stations and the optimized 
@@ -38,7 +38,10 @@ result1 <- optimization(demand_sim, num_bikes)
 
 # We run this 2 more times and avg the results
 
+set.seed(345)
 result2 <- optimization(demand_sim, num_bikes)
+
+set.seed(567)
 result3 <- optimization(demand_sim, num_bikes)
 
 combined <- rbind(result1, result2, result3)
