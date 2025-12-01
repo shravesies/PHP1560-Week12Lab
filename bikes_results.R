@@ -4,6 +4,8 @@ library(MASS)
 library(patchwork) 
 library(glmnet)
 library(dplyr)
+library(tibble)
+library(knitr)
 
 # this script runs the final optimization function producing a data frame with 
 #the optimized starting number of bikes for each station
@@ -24,7 +26,7 @@ unhappy(demand_sim, num_bikes)
 
 # Now we can run optimizing_bikes which calls the previous functions
 
-result1 <- optimizing_bikes(demand_sim, num_bikes)
+result1 <- optimization(demand_sim, num_bikes)
 
 # This result is a data frame that contains all of the stations and the optimized 
 # number of bikes each station should start with
@@ -32,11 +34,13 @@ result1 <- optimizing_bikes(demand_sim, num_bikes)
 # are no unhappy customers left
 
 # We run this 2 more times and avg the results
-result2 <- optimizing_bikes(demand_sim, num_bikes)
-result3 <- optimizing_bikes(demand_sim, num_bikes)
+result2 <- optimization(demand_sim, num_bikes)
+result3 <- optimization(demand_sim, num_bikes)
 
 combined <- rbind(result1, result2, result3)
 
-combined %>%
+final_table <- combined %>%
   group_by(station) %>%
   summarize(avg_bikes = mean(bikes))
+
+kable(final_table)
