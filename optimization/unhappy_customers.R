@@ -10,7 +10,8 @@ unhappy <- function(sample_bike, num_bikes) {
   sample_bike <- sample_bike[order(sample_bike$start_time), ]
   
   num_bikes$unhappy <- 0
-  
+
+#Simulates trips
   for (i in 1:nrow(sample_bike)) {
     start <- sample_bike$start_station[i]
     end   <- sample_bike$end_station[i]
