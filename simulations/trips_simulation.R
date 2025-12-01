@@ -5,6 +5,8 @@
 #' demand for the day
 #' @param2 placement input that tracks placement of bikes to optimize on
 
+source("~/GitHub/PHP1560-Week12Lab/simulations/demand_simulation.R")
+
 simulate_trips <- function(demand_sim, placement) {
   # Organize in sequential order (otherwise bikes may be out of time order)
   demand_sim <- demand_sim %>% 
@@ -23,7 +25,7 @@ simulate_trips <- function(demand_sim, placement) {
   # of completed trips
     if (bikes[start] > 0) {
       bikes[start] <- bikes[start] - 1
-      bikes[end] <- bikes[endd] + 1
+      bikes[end] <- bikes[end] + 1
       completed <- completed + 1
     }
   }
