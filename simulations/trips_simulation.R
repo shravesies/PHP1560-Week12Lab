@@ -5,17 +5,17 @@
 #' demand for the day
 #' @param2 placement input that tracks placement of bikes to optimize on
 
+source("~/GitHub/PHP1560-Week12Lab/simulations/demand_simulation.R")
+
 # Give every station some arbitrary number of bikes to run the trip simulation
 # With so we can then optimize on happiness with demand.
 unique(arrival_rates$start_station)
 unique(arrival_rates$end_station)
 
-placement <- c("R" = 20, "5" = 10, "18" = 20, "21" = 10, "11" = 20,
-               "12" = 10, "16" = 20, "17" = 10, "13" = 20, "22" = 10,
-               "6" = 20, "7" = 10, "8" = 20, "9" = 10, "4" = 20, "23" = 10,
-               "10" = 20, "19" = 10, "14" = 20, "15" = 10, "2" = 20, "24" = 10)
-
-source("~/GitHub/PHP1560-Week12Lab/simulations/demand_simulation.R")
+placement <- c("R" = 10, "5" = 10, "18" = 10, "21" = 10, "11" = 10,
+               "12" = 10, "16" = 10, "17" = 10, "13" = 10, "22" = 10,
+               "6" = 10, "7" = 10, "8" = 10, "9" = 10, "4" = 10, "23" = 10,
+               "10" = 10, "19" = 10, "14" = 10, "15" = 10, "2" = 10, "24" = 10)
 
 simulate_trips <- function(demand_sim, placement) {
   # Organize in sequential order (otherwise bikes may be out of time order)
