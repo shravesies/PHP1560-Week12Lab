@@ -12,6 +12,8 @@ library(dplyr)
 # runs demand_simulation: simulates demand using arrival rates
 # runs trips_simulation: simulates trips using demand simulation
 
+simulate_trips(demand_sim, placement)
+
 # this data frame just finds the start stations and the number of bikes at each
 # we start with 0 bikes, and the optimizing_bikes function will update it
 num_bikes <- data.frame(
@@ -24,6 +26,7 @@ unhappy(demand_sim, num_bikes)
 
 # Now we can run optimizing_bikes which calls the previous functions
 
+set.seed(123)
 result1 <- optimizing_bikes(demand_sim, num_bikes)
 
 # This result is a data frame that contains all of the stations and the optimized 
@@ -32,7 +35,10 @@ result1 <- optimizing_bikes(demand_sim, num_bikes)
 # are no unhappy customers left
 
 # We run this 2 more times and avg the results
+set.seed(345)
 result2 <- optimizing_bikes(demand_sim, num_bikes)
+
+set.seed(567)
 result3 <- optimizing_bikes(demand_sim, num_bikes)
 
 combined <- rbind(result1, result2, result3)
