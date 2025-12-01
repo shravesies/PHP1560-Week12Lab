@@ -40,6 +40,3 @@ combined <- rbind(result1, result2, result3)
 combined %>%
   group_by(station) %>%
   summarize(avg_bikes = mean(bikes))
-
-str(sample_bike$start_time)
-str(sample_bike)
