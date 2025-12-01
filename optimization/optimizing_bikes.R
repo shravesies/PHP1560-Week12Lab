@@ -7,7 +7,9 @@
 
 source("~/GitHub/PHP1560-Week12Lab/optimization/unhappy_customers.R")
 
-optimization <- function(demand_sim, num_bikes, fleet_size) {
+optimization <- function(demand_sim, num_bikes, fleet_size, seed) {
+  
+  seed <- set.seed()
   
   customer_data <- unhappy(demand_sim, num_bikes)
   total_unhappy <- sum(customer_data$unhappy)
