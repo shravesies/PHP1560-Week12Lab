@@ -5,6 +5,8 @@
 #' @param2 num_bikes a data frame that shows the number of bikes each station has
 #' @return This function returns a data frame with station, number of bikes, and number of unhappy customers
 
+source("~/GitHub/PHP1560-Week12Lab/simulations/demand_simulation.R")
+
 # save a data frame with number of bikes to keep track of optimized
 # placements
 num_bikes <- data.frame(
