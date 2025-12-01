@@ -50,4 +50,4 @@ final_table <- combined %>%
   group_by(station) %>%
   summarize(avg_bikes = mean(bikes))
 
-table(final_table)
+kable(final_table)
