@@ -20,11 +20,11 @@ num_bikes <- data.frame(
 
 # runs unhappy_customers: finds the number of unhappy customers using trip 
 #simulation and num_bikes
-unhappy(output_dataframe_of_trip_simulation, num_bikes)
+unhappy(sim_trips, num_bikes)
 
 # Now we can run optimizing_bikes which calls all the previous functions
 
-result1 -> optimizing_bikes(output_dataframe_of_trip_simulation, num_bikes)
+result1 <- optimizing_bikes(sim_trips, num_bikes)
 
 # This result is a data frame that contains all of the stations and the optimized 
 # number of bikes each station should start with
@@ -32,11 +32,14 @@ result1 -> optimizing_bikes(output_dataframe_of_trip_simulation, num_bikes)
 # are no unhappy customers left
 
 # We run this 2 more times and avg the results
-result2 -> optimizing_bikes(output_dataframe_of_trip_simulation, num_bikes)
-result3 -> optimizing_bikes(output_dataframe_of_trip_simulation, num_bikes)
+result2 <- optimizing_bikes(sim_trips, num_bikes)
+result3 <- optimizing_bikes(sim_trips, num_bikes)
 
 combined <- rbind(result1, result2, result3)
 
 combined %>%
   group_by(station) %>%
   summarize(avg_bikes = mean(bikes))
+
+str(sample_bike$start_time)
+str(sample_bike)
