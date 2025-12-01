@@ -17,7 +17,6 @@ arrival_rates <- estimate_arrival_rates(sample_bike)
 #Set demand_simulation as a function given the parameters, setting seed 
 #to randomize and to create a new vector that will intake all bike demand
 demand_simulation <- function(arrival_rates, day = 24) {
-  set.seed(123)
   all_demand <- c()
   
 #Create pairings for each origin and destination station
