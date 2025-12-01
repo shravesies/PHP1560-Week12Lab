@@ -15,6 +15,8 @@ placement <- c("R" = 20, "5" = 10, "18" = 20, "21" = 10, "11" = 20,
                "6" = 20, "7" = 10, "8" = 20, "9" = 10, "4" = 20, "23" = 10,
                "10" = 20, "19" = 10, "14" = 20, "15" = 10, "2" = 20, "24" = 10)
 
+source("~/GitHub/PHP1560-Week12Lab/simulations/demand_simulation.R")
+
 simulate_trips <- function(demand_sim, placement) {
   # Organize in sequential order (otherwise bikes may be out of time order)
   demand_sim <- demand_sim %>% 
