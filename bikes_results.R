@@ -8,7 +8,7 @@ library(tibble)
 library(knitr)
 
 # this script runs the final optimization function producing a data frame with 
-#the optimized starting number of bikes for each station
+# the optimized starting number of bikes for each station
 # the optimization function does the following:
 # runs estimation function: estimates arrival rates using data
 # runs demand_simulation: simulates demand using arrival rates
